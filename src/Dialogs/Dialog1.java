@@ -16,9 +16,6 @@ public class Dialog1 extends JDialog {
     private JTextField textField3;
     private JButton addButton;
     private JButton clearButton;
-    private int Field3Flag = 0;
-    public int CWR;
-
 
     public Dialog1() {
         setContentPane(contentPane);
