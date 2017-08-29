@@ -49,6 +49,7 @@ public class CancelWithResult extends JDialog {
 
 
 
+
     }
 
     private void onCancel() {

@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Objects;
 
 public class Dialog1 extends JDialog {
     private JPanel contentPane;
@@ -84,9 +83,10 @@ public class Dialog1 extends JDialog {
 
     }
 
-    public void onOK() {
+    private void onOK() {
 
         try  {
+            if (Field3Flag == 1)
 {
 
             FileWriter writer = new FileWriter("src/Data/results.txt", true);
@@ -96,6 +96,7 @@ public class Dialog1 extends JDialog {
 
             bufferedWriter.close();
             dispose();}
+            else dispose();
 
         } catch (IOException ex) {
 
@@ -106,7 +107,7 @@ public class Dialog1 extends JDialog {
 
     private void onCancel() {
 
-        if (textField3.getText() != null) {
+        if (Field3Flag == 1) {
             CancelWithResult cancelWithResult = new CancelWithResult();
             cancelWithResult.setVisible(true);
         } else dispose();

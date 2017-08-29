@@ -79,8 +79,8 @@
       <file leaf-file-name="CancelWithResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dialogs/CancelWithResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+            <state relative-caret-position="193">
+              <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
               <folding>
                 <element signature="e#495#496#0" expanded="true" />
                 <element signature="e#533#534#0" expanded="true" />
@@ -114,17 +114,17 @@
       <file leaf-file-name="Dialog1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dialogs/Dialog1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+            <state relative-caret-position="428">
+              <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
               <folding>
-                <element signature="e#792#793#0" expanded="true" />
-                <element signature="e#830#831#0" expanded="true" />
-                <element signature="e#962#963#0" expanded="true" />
-                <element signature="e#1004#1005#0" expanded="true" />
-                <element signature="e#1155#1156#0" expanded="true" />
-                <element signature="e#1194#1195#0" expanded="true" />
-                <element signature="e#1347#1348#0" expanded="true" />
-                <element signature="e#1388#1389#0" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#936#937#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#1129#1130#0" expanded="true" />
+                <element signature="e#1168#1169#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,8 +133,8 @@
       <file leaf-file-name="results.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Data/results.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -165,10 +165,10 @@
         <option value="$PROJECT_DIR$/src/Dialog1.form" />
         <option value="$PROJECT_DIR$/src/Sandbox1.java" />
         <option value="$PROJECT_DIR$/src/Dialog1.java" />
-        <option value="$PROJECT_DIR$/src/Dialogs/Dialog1.form" />
         <option value="$PROJECT_DIR$/src/Data/results_date.properties" />
-        <option value="$PROJECT_DIR$/src/Data/results.txt" />
         <option value="$PROJECT_DIR$/src/Data/Writer.java" />
+        <option value="$PROJECT_DIR$/src/Dialogs/Dialog1.form" />
+        <option value="$PROJECT_DIR$/src/Data/results.txt" />
         <option value="$PROJECT_DIR$/src/Dialogs/CancelWithResult.java" />
         <option value="$PROJECT_DIR$/src/Dialogs/Dialog1.java" />
       </list>
@@ -891,11 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dialogs/Dialog1.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Data/results">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -939,10 +934,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dialogs/Dialog1.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Dialogs/CancelWithResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        <state relative-caret-position="193">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding>
             <element signature="e#495#496#0" expanded="true" />
             <element signature="e#533#534#0" expanded="true" />
@@ -954,25 +954,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Data/results.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dialogs/Dialog1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+        <state relative-caret-position="428">
+          <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="17" />
           <folding>
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#1004#1005#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
           </folding>
         </state>
       </provider>
