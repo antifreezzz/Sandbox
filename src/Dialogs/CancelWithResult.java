@@ -9,6 +9,7 @@ public class CancelWithResult extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private JTextField CancelTextField;
 
 
     public CancelWithResult() {
@@ -50,6 +51,7 @@ public class CancelWithResult extends JDialog {
         // add your code here
 
         dispose();
+        System.exit(0);
 
 
     }

@@ -73,6 +73,7 @@ public class Dialog1 extends JDialog {
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
+
     }
 
     private void onAdd() {
@@ -85,14 +86,14 @@ public class Dialog1 extends JDialog {
         num2 = Float.parseFloat(textField2.getText());
         result = num1 + num2;
         textField3.setText(String.valueOf(result));
-        Field3Flag = 1;
+
         }
     }
 
     private void onOK() {
 
         try  {
-            if (Field3Flag == 1)
+            if (! Objects.equals(textField3.getText(), ""))
 {
 
             FileWriter writer = new FileWriter("src/Data/results.txt", true);
@@ -113,10 +114,9 @@ public class Dialog1 extends JDialog {
 
     private void onCancel() {
 
-        if (Field3Flag == 1) {
+        if (! Objects.equals(textField3.getText(), "")) {
             CancelWithResult cancelWithResult = new CancelWithResult();
             cancelWithResult.setVisible(true);
-            CWR = 1;
         } else dispose();
 
 
