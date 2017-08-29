@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Dialog1 extends JDialog {
     private JPanel contentPane;
@@ -16,6 +17,7 @@ public class Dialog1 extends JDialog {
     private JButton addButton;
     private JButton clearButton;
     private int Field3Flag = 0;
+    public int CWR;
 
 
     public Dialog1() {
@@ -73,14 +75,18 @@ public class Dialog1 extends JDialog {
         textField3.setText("");
     }
 
-    public void onAdd() {
+    private void onAdd() {
+        if (Objects.equals(textField1.getText(), "") || Objects.equals(textField2.getText(), "")){
+            FieldsIsNull fieldsIsNull = new FieldsIsNull();
+            fieldsIsNull.setVisible(true);
+        } else {
         float num1, num2, result;
         num1 = Float.parseFloat(textField1.getText());
         num2 = Float.parseFloat(textField2.getText());
         result = num1 + num2;
         textField3.setText(String.valueOf(result));
         Field3Flag = 1;
-
+        }
     }
 
     private void onOK() {
@@ -110,6 +116,7 @@ public class Dialog1 extends JDialog {
         if (Field3Flag == 1) {
             CancelWithResult cancelWithResult = new CancelWithResult();
             cancelWithResult.setVisible(true);
+            CWR = 1;
         } else dispose();
 
 
