@@ -2,14 +2,10 @@ package Main.Dialogs;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
+
+import static Main.Helpers.ApplicationManager.bufferedWriter;
 
 public class Dialog1 extends JDialog {
     private JPanel contentPane;
@@ -105,18 +101,6 @@ public class Dialog1 extends JDialog {
             dispose();
         }
 
-    }
-
-    private void bufferedWriter(String fileName, JTextField textField3) throws IOException {
-        FileWriter writer = new FileWriter(fileName, true);
-        BufferedWriter bufferedWriter = new BufferedWriter(writer);
-        DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
-        Date today = Calendar.getInstance().getTime();
-        String reportDate = String.valueOf(df.format(today));
-
-        bufferedWriter.write(String.valueOf(reportDate + "   " + Float.parseFloat(textField3.getText())) + "\n");
-
-        bufferedWriter.close();
     }
 
     private void onCancel() {
