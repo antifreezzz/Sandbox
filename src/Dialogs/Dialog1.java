@@ -5,6 +5,10 @@ import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class Dialog1 extends JDialog {
@@ -74,33 +78,35 @@ public class Dialog1 extends JDialog {
     }
 
     private void onAdd() {
-        if (Objects.equals(textField1.getText(), "") || Objects.equals(textField2.getText(), "")){
+        if (Objects.equals(textField1.getText(), "") || Objects.equals(textField2.getText(), "")) {
             FieldsIsNull fieldsIsNull = new FieldsIsNull();
             fieldsIsNull.setVisible(true);
         } else {
-        float num1, num2, result;
-        num1 = Float.parseFloat(textField1.getText());
-        num2 = Float.parseFloat(textField2.getText());
-        result = num1 + num2;
-        textField3.setText(String.valueOf(result));
+            float num1, num2, result;
+            num1 = Float.parseFloat(textField1.getText());
+            num2 = Float.parseFloat(textField2.getText());
+            result = num1 + num2;
+            textField3.setText(String.valueOf(result));
 
         }
     }
 
     private void onOK() {
 
-        try  {
-            if (! Objects.equals(textField3.getText(), ""))
-{
+        try {
+            if (!Objects.equals(textField3.getText(), "")) {
 
-            FileWriter writer = new FileWriter("src/Data/results.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+                FileWriter writer = new FileWriter("src/Data/results.txt", true);
+                BufferedWriter bufferedWriter = new BufferedWriter(writer);
+                DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
+                Date today = Calendar.getInstance().getTime();
+                String reportDate = String.valueOf(df.format(today));
 
-            bufferedWriter.write(String.valueOf(Float.parseFloat(textField3.getText())) + "\n");
+                bufferedWriter.write(String.valueOf(reportDate + "   " + Float.parseFloat(textField3.getText())) + "\n");
 
-            bufferedWriter.close();
-            dispose();}
-            else dispose();
+                bufferedWriter.close();
+                dispose();
+            } else dispose();
 
         } catch (IOException ex) {
 
@@ -111,7 +117,7 @@ public class Dialog1 extends JDialog {
 
     private void onCancel() {
 
-        if (! Objects.equals(textField3.getText(), "")) {
+        if (!Objects.equals(textField3.getText(), "")) {
             CancelWithResult cancelWithResult = new CancelWithResult();
             cancelWithResult.setVisible(true);
         } else dispose();
