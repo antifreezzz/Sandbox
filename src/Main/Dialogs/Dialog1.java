@@ -96,15 +96,7 @@ public class Dialog1 extends JDialog {
         try {
             if (!Objects.equals(textField3.getText(), "")) {
 
-                FileWriter writer = new FileWriter("src/Main/Data/results.txt", true);
-                BufferedWriter bufferedWriter = new BufferedWriter(writer);
-                DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
-                Date today = Calendar.getInstance().getTime();
-                String reportDate = String.valueOf(df.format(today));
-
-                bufferedWriter.write(String.valueOf(reportDate + "   " + Float.parseFloat(textField3.getText())) + "\n");
-
-                bufferedWriter.close();
+                bufferedWriter("src/Main/Data/results.txt", textField3);
                 System.exit(0);
             } else dispose();
 
@@ -113,6 +105,18 @@ public class Dialog1 extends JDialog {
             dispose();
         }
 
+    }
+
+    private void bufferedWriter(String fileName, JTextField textField3) throws IOException {
+        FileWriter writer = new FileWriter(fileName, true);
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = String.valueOf(df.format(today));
+
+        bufferedWriter.write(String.valueOf(reportDate + "   " + Float.parseFloat(textField3.getText())) + "\n");
+
+        bufferedWriter.close();
     }
 
     private void onCancel() {
