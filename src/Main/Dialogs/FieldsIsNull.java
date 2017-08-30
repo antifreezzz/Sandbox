@@ -1,4 +1,4 @@
-package Dialogs;
+package Main.Dialogs;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

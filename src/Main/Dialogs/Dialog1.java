@@ -1,4 +1,4 @@
-package Dialogs;
+package Main.Dialogs;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -96,7 +96,7 @@ public class Dialog1 extends JDialog {
         try {
             if (!Objects.equals(textField3.getText(), "")) {
 
-                FileWriter writer = new FileWriter("src/Data/results.txt", true);
+                FileWriter writer = new FileWriter("src/Main/Data/results.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
                 DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
                 Date today = Calendar.getInstance().getTime();
@@ -105,7 +105,7 @@ public class Dialog1 extends JDialog {
                 bufferedWriter.write(String.valueOf(reportDate + "   " + Float.parseFloat(textField3.getText())) + "\n");
 
                 bufferedWriter.close();
-                dispose();
+                System.exit(0);
             } else dispose();
 
         } catch (IOException ex) {

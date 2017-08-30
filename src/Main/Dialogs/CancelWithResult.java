@@ -1,7 +1,6 @@
-package Dialogs;
+package Main.Dialogs;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class CancelWithResult extends JDialog {

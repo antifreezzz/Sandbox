@@ -1,4 +1,6 @@
-import Dialogs.Dialog1;
+package Main;
+
+import Main.Dialogs.Dialog1;
 
 /**
  * Created by Klementyev on 29.08.2017.
