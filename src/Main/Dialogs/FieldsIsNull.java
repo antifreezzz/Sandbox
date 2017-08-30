@@ -1,10 +1,12 @@
 package Main.Dialogs;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FieldsIsNull extends JDialog {
+
     private JPanel contentPane;
     private JButton buttonOK;
     private JTextField NullTextField;
@@ -23,7 +25,7 @@ public class FieldsIsNull extends JDialog {
         });
     }
 
-    private void onOK() {
+    protected void onOK() {
         // add your code here
         dispose();
     }
@@ -33,5 +35,10 @@ public class FieldsIsNull extends JDialog {
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
+    }
+
+    public static Window[] getWindows() {
+
+        return new Window[0];
     }
 }

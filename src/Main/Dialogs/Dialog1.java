@@ -8,14 +8,15 @@ import java.util.Objects;
 import static Main.Helpers.ApplicationManager.bufferedWriter;
 
 public class Dialog1 extends JDialog {
-    private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JButton addButton;
-    private JButton clearButton;
+
+    protected JPanel contentPane;
+    protected JButton buttonOK;
+    protected JButton buttonCancel;
+    protected JTextField textField1;
+    protected JTextField textField2;
+    protected JTextField textField3;
+    protected JButton addButton;
+    protected JButton clearButton;
 
     public Dialog1() {
         setContentPane(contentPane);
@@ -66,14 +67,14 @@ public class Dialog1 extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onClear() {
+    protected void onClear() {
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
 
     }
 
-    private void onAdd() {
+    protected void onAdd() {
         if (Objects.equals(textField1.getText(), "") || Objects.equals(textField2.getText(), "")) {
             FieldsIsNull fieldsIsNull = new FieldsIsNull();
             fieldsIsNull.setVisible(true);
