@@ -61,7 +61,7 @@ public class CancelWithResult extends JDialog {
     }
 
     public static void main(String[] args) {
-        CancelWithResult dialog = new CancelWithResult();
+        JDialog dialog = new CancelWithResult();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);

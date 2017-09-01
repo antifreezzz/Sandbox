@@ -107,8 +107,8 @@ public class Dialog1 extends JDialog {
     private void onCancel() {
 
         if (!Objects.equals(textField3.getText(), "")) {
-            CancelWithResult cancelWithResult = new CancelWithResult();
-            cancelWithResult.setVisible(true);
+            JDialog JDialog = new CancelWithResult();
+            JDialog.setVisible(true);
         } else dispose();
 
 
