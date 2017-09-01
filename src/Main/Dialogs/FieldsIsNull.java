@@ -16,18 +16,13 @@ public class FieldsIsNull extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        setSize(350,100);
+        setSize(350, 100);
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
-    }
-
-    protected void onOK() {
-        // add your code here
-        dispose();
     }
 
     public static void main(String[] args) {
@@ -40,5 +35,10 @@ public class FieldsIsNull extends JDialog {
     public static Window[] getWindows() {
 
         return new Window[0];
+    }
+
+    protected void onOK() {
+        // add your code here
+        dispose();
     }
 }

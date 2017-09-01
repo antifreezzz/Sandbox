@@ -67,6 +67,13 @@ public class Dialog1 extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    public static void main(String[] args) {
+        Dialog1 dialog = new Dialog1();
+        dialog.pack();
+        dialog.setVisible(true);
+        System.exit(0);
+    }
+
     protected void onClear() {
         textField1.setText("");
         textField2.setText("");
@@ -112,12 +119,5 @@ public class Dialog1 extends JDialog {
         } else dispose();
 
 
-    }
-
-    public static void main(String[] args) {
-        Dialog1 dialog = new Dialog1();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }

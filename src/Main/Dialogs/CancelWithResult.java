@@ -15,7 +15,7 @@ public class CancelWithResult extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        setSize(200,200);
+        setSize(200, 200);
 
 
         buttonOK.addActionListener(new ActionListener() {
@@ -46,6 +46,15 @@ public class CancelWithResult extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    public static void main(String[] args) {
+        JDialog dialog = new CancelWithResult();
+        dialog.pack();
+        dialog.setVisible(true);
+        System.exit(0);
+
+
+    }
+
     public void onOK() {
         // add your code here
 
@@ -58,15 +67,5 @@ public class CancelWithResult extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        JDialog dialog = new CancelWithResult();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-
-
-
     }
 }
