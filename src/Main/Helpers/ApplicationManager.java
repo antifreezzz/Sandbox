@@ -2,12 +2,14 @@ package Main.Helpers;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Created by Klementyev on 30.08.2017.
@@ -27,5 +29,13 @@ public class ApplicationManager {
         bufferedWriter.write(str);
 
         bufferedWriter.close();
+    }
+    public static void logWriter(Object action, String fileName) throws IOException {
+        FileWriter writer = new FileWriter(fileName, true);
+        BufferedWriter logWriter = new BufferedWriter(writer);
+        DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = String.valueOf(df.format(today));
+        sendToFile(logWriter, String.valueOf(reportDate + "    "+ Objects.toString(action)));
     }
 }
