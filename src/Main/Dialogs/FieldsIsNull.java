@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import static Main.Helpers.ApplicationManager.logWriter;
 
 public class FieldsIsNull extends JDialog {
 
@@ -20,16 +23,22 @@ public class FieldsIsNull extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
             }
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FieldsIsNull dialog = new FieldsIsNull();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
+        logWriter("FieldsIsNull.setVisible");
     }
 
     public static Window[] getWindows() {
@@ -37,8 +46,9 @@ public class FieldsIsNull extends JDialog {
         return new Window[0];
     }
 
-    protected void onOK() {
+    protected void onOK() throws IOException {
         // add your code here
         dispose();
+        logWriter("FieldsIsNull.Ok");
     }
 }

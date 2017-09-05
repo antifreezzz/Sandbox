@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static Main.Helpers.ApplicationManager.bufferedWriter;
+import static Main.Helpers.ApplicationManager.logWriter;
 
 public class Dialog1 extends JDialog {
 
@@ -27,27 +28,43 @@ public class Dialog1 extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onOK();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onAdd();
+                try {
+                    onAdd();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onClear();
+                try {
+                    onClear();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -55,14 +72,22 @@ public class Dialog1 extends JDialog {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
@@ -74,14 +99,15 @@ public class Dialog1 extends JDialog {
         System.exit(0);
     }
 
-    protected void onClear() {
+    protected void onClear() throws IOException {
         textField1.setText("");
         textField2.setText("");
         textField3.setText("");
+        logWriter("Dialog1.Clear");
 
     }
 
-    protected void onAdd() {
+    protected void onAdd() throws IOException {
         if (Objects.equals(textField1.getText(), "") || Objects.equals(textField2.getText(), "")) {
             FieldsIsNull fieldsIsNull = new FieldsIsNull();
             fieldsIsNull.setVisible(true);
@@ -93,9 +119,10 @@ public class Dialog1 extends JDialog {
             textField3.setText(String.valueOf(result));
 
         }
+        logWriter("Dialog1.Add");
     }
 
-    private void onOK() {
+    private void onOK() throws IOException {
 
         try {
             if (!Objects.equals(textField3.getText(), "")) {
@@ -108,15 +135,17 @@ public class Dialog1 extends JDialog {
 
             dispose();
         }
+        logWriter("Dialog1.Ok");
 
     }
 
-    private void onCancel() {
+    private void onCancel() throws IOException {
 
         if (!Objects.equals(textField3.getText(), "")) {
             JDialog JDialog = new CancelWithResult();
             JDialog.setVisible(true);
         } else dispose();
+        logWriter("Dialog1.Cancel");
 
 
     }
