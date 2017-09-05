@@ -2,8 +2,6 @@ package Main.Dialogs;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import static Main.Helpers.ApplicationManager.logWriter;
@@ -21,15 +19,13 @@ public class FieldsIsNull extends JDialog {
         getRootPane().setDefaultButton(buttonOK);
         setSize(350, 100);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-
+        buttonOK.addActionListener(e -> {
+            try {
+                onOK();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
+
         });
     }
 
