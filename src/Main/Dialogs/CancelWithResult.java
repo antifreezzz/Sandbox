@@ -14,30 +14,26 @@ public class CancelWithResult extends JDialog {
     private JTextField CancelTextField;
 
 
-    public CancelWithResult() {
+    CancelWithResult() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
         setSize(200, 200);
 
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onOK();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+        buttonOK.addActionListener(e -> {
+            try {
+                onOK();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onCancel();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+        buttonCancel.addActionListener(e -> {
+            try {
+                onCancel();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         });
 
@@ -54,13 +50,11 @@ public class CancelWithResult extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onCancel();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+        contentPane.registerKeyboardAction(e -> {
+            try {
+                onCancel();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
