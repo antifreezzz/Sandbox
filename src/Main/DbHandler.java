@@ -36,19 +36,22 @@ public class DbHandler {
         // Statement используется для того, чтобы выполнить sql-запрос
         try (Statement statement = this.connection.createStatement()) {
             // В данный список будем загружать наши продукты, полученные из БД
-            List<Product> products = new ArrayList<Product>();
+            List<Transaction> transactions = new ArrayList<Transaction>();
             // В resultSet будет храниться результат нашего запроса,
             // который выполняется командой statement.executeQuery()
             ResultSet resultSet = statement.executeQuery("SELECT id, good, price, category_name FROM products");
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
-                products.add(new Product(resultSet.getInt("id"),
-                        resultSet.getString("good"),
-                        resultSet.getDouble("price"),
-                        resultSet.getString("category_name")));
+                transactions.add(new Transaction(resultSet.getInt("ID"),
+                        resultSet.getString("Name"),
+                        resultSet.getString("Type"),
+                        resultSet.getString("Cathegory"),
+                        resultSet.getDouble("Sum"),
+                        resultSet.getDate("date")));
+
             }
             // Возвращаем наш список
-            return products;
+            return transactions;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,14 +61,16 @@ public class DbHandler {
     }
 
     // Добавление продукта в БД
-    public void addProduct(Product product) {
+    public void addProduct(Transaction transaction) {
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
-                "INSERT INTO Products(`good`, `price`, `category_name`) " +
-                        "VALUES(?, ?, ?)")) {
-            statement.setObject(1, product.good);
-            statement.setObject(2, product.price);
-            statement.setObject(3, product.category_name);
+                "INSERT INTO Transactions(`NAME`, `TYPE`, `CATHEGORY`, 'SUM', 'DATE') " +
+                        "VALUES(?, ?, ?, ?, ?)")) {
+            statement.setObject(1, transaction.Name);
+            statement.setObject(2, transaction.Type);
+            statement.setObject(3, transaction.Cathegory);
+            statement.setObject(4, transaction.Sum);
+            statement.setObject(5, transaction.date);
             // Выполняем запрос
             statement.execute();
         } catch (SQLException e) {
@@ -74,9 +79,9 @@ public class DbHandler {
     }
 
     // Удаление продукта по id
-    public void deleteProduct(int id) {
+    public void deleteTransaction(int id) {
         try (PreparedStatement statement = this.connection.prepareStatement(
-                "DELETE FROM Products WHERE id = ?")) {
+                "DELETE FROM Transactions WHERE id = ?")) {
             statement.setObject(1, id);
             // Выполняем запрос
             statement.execute();
