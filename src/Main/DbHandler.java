@@ -68,6 +68,7 @@ public class DbHandler {
 
     // Добавление продукта в БД
     public void addTransaction(Transaction transaction) {
+        Date date = new Date();
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
                 "INSERT INTO Transactions(`NAME`, `TYPE`, `CATHEGORY`, 'SUM', 'DATE') " +
@@ -76,7 +77,7 @@ public class DbHandler {
             statement.setObject(2, transaction.Type);
             statement.setObject(3, transaction.Cathegory);
             statement.setObject(4, transaction.Sum);
-            statement.setObject(5, transaction.date);
+            statement.setObject(5, date);
             // Выполняем запрос
             statement.execute();
         } catch (SQLException e) {

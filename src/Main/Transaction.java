@@ -22,7 +22,7 @@ public class Transaction {
         this.date = date;
     }
 
-    public Transaction(String Name, String Type, String Cathegory, double Sum, ){
+    public Transaction(String Name, String Type, String Cathegory, double Sum){
         this.ID = ID;
         this.Name = Name;
         this.Type = Type;
