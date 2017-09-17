@@ -8,7 +8,7 @@ import java.util.*;
 public class DbHandler {
 
     // Константа, в которой хранится адрес подключения
-    private static final String CON_STR = "jdbc:sqlite:D:/myfin.db";
+    private static final String CON_STR = "jdbc:sqlite:src/Main/Data/dbcoins.s3db";
 
     // Используем шаблон одиночка, чтобы не плодить множество
     // экземпляров класса DbHandler
@@ -31,7 +31,7 @@ public class DbHandler {
         this.connection = DriverManager.getConnection(CON_STR);
     }
 
-    public List<Transaction> getAllProducts() {
+    public List<Transaction> getAllTransactions() {
 
         // Statement используется для того, чтобы выполнить sql-запрос
         try (Statement statement = this.connection.createStatement()) {
@@ -39,15 +39,14 @@ public class DbHandler {
             List<Transaction> transactions = new ArrayList<Transaction>();
             // В resultSet будет храниться результат нашего запроса,
             // который выполняется командой statement.executeQuery()
-            ResultSet resultSet = statement.executeQuery("SELECT id, good, price, category_name FROM products");
+            ResultSet resultSet = statement.executeQuery("SELECT ID, NAME, TYPE, CATHEGORY, SUM, DATE FROM Transactions");
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
-                transactions.add(new Transaction(resultSet.getInt("ID"),
+                transactions.add(new Transaction(
                         resultSet.getString("Name"),
                         resultSet.getString("Type"),
                         resultSet.getString("Cathegory"),
-                        resultSet.getDouble("Sum"),
-                        resultSet.getDate("date")));
+                        resultSet.getDouble("Sum")));
 
             }
             // Возвращаем наш список
@@ -61,7 +60,7 @@ public class DbHandler {
     }
 
     // Добавление продукта в БД
-    public void addProduct(Transaction transaction) {
+    public void addTransaction(Transaction transaction) {
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
                 "INSERT INTO Transactions(`NAME`, `TYPE`, `CATHEGORY`, 'SUM', 'DATE') " +

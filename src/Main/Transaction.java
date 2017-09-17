@@ -10,9 +10,9 @@ public class Transaction {
     public String Type;
     public String Cathegory;
     public double Sum;
-    public Date date;
+    public DateHelper date;
 
-    public Transaction(int ID, String Name, String Type, String Cathegory, double Sum, Date date){
+    public Transaction(String Name, String Type, String Cathegory, double Sum){
         this.ID = ID;
         this.Name = Name;
         this.Type = Type;
