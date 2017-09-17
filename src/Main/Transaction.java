@@ -2,6 +2,7 @@ package Main;
 
 import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Transaction {
@@ -10,7 +11,16 @@ public class Transaction {
     public String Type;
     public String Cathegory;
     public double Sum;
-    public DateHelper date;
+    public Date date;
+
+    public Transaction(int ID, String Name, String Type, String Cathegory, double Sum, Date date){
+        this.ID = ID;
+        this.Name = Name;
+        this.Type = Type;
+        this.Cathegory = Cathegory;
+        this.Sum = Sum;
+        this.date = date;
+    }
 
     public Transaction(String Name, String Type, String Cathegory, double Sum){
         this.ID = ID;

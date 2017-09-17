@@ -3,9 +3,12 @@ package Main;
 import org.sqlite.JDBC;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 public class DbHandler {
+
 
     // Константа, в которой хранится адрес подключения
     private static final String CON_STR = "jdbc:sqlite:src/Main/Data/dbcoins.s3db";
@@ -33,20 +36,24 @@ public class DbHandler {
 
     public List<Transaction> getAllTransactions() {
 
+
         // Statement используется для того, чтобы выполнить sql-запрос
         try (Statement statement = this.connection.createStatement()) {
             // В данный список будем загружать наши продукты, полученные из БД
             List<Transaction> transactions = new ArrayList<Transaction>();
+
             // В resultSet будет храниться результат нашего запроса,
             // который выполняется командой statement.executeQuery()
             ResultSet resultSet = statement.executeQuery("SELECT ID, NAME, TYPE, CATHEGORY, SUM, DATE FROM Transactions");
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
                 transactions.add(new Transaction(
+                        resultSet.getInt("ID"),
                         resultSet.getString("Name"),
                         resultSet.getString("Type"),
                         resultSet.getString("Cathegory"),
-                        resultSet.getDouble("Sum")));
+                        resultSet.getDouble("Sum"),
+                        resultSet.getDate("Date")));
 
             }
             // Возвращаем наш список

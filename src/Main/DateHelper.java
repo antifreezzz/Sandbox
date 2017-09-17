@@ -5,6 +5,10 @@ import java.util.Date;
 
 public class DateHelper
 {
+ /*   public DateHelper(Object date) {
+        DateHelper dateHelper = new DateHelper(date);
+    }
+*/
     public void DateHelper()
     {
         Date d = new Date();

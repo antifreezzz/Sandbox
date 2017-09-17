@@ -9,7 +9,7 @@ public class Main {
             // Создаем экземпляр по работе с БД
             DbHandler dbHandler = DbHandler.getInstance();
             // Добавляем запись
-            dbHandler.addTransaction(new Transaction( "Name","1","2",10000.00));
+            dbHandler.addTransaction(new Transaction("Name","1","2",10000.00));
             // Получаем все записи и выводим их на консоль
             List<Transaction> transactions = dbHandler.getAllTransactions();
             for (Transaction transaction : transactions) {
