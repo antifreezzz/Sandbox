@@ -28,4 +28,14 @@ public class ApplicationManager {
 
         bufferedWriter.close();
     }
+
+    public static void logWriter(String action) throws IOException {
+        String fileName = "src/Main/Data/log.txt";
+        FileWriter writer = new FileWriter(fileName, true);
+        BufferedWriter logWriter = new BufferedWriter(writer);
+        DateFormat df = new SimpleDateFormat("HH:mm:ss yyyy/MM/dd");
+        Date today = Calendar.getInstance().getTime();
+        String reportDate = String.valueOf(df.format(today));
+        sendToFile(logWriter, reportDate + "    " + action + "\n");
+    }
 }

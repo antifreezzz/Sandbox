@@ -3,6 +3,8 @@ package Tests;
 import Main.Dialogs.Dialog1;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static org.testng.Assert.assertEquals;
 
 /**
@@ -10,8 +12,12 @@ import static org.testng.Assert.assertEquals;
  */
 public class Testo extends Dialog1 {
     @Test
-    public void Test1() {
-        onClear();
+    public void Test1() throws IOException {
+        try {
+            onClear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         textField1.setText("10");
         textField2.setText("15");
         onAdd();

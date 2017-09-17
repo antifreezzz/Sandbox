@@ -1,7 +1,12 @@
 package Main.Dialogs;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+
+import static Main.Helpers.ApplicationManager.logWriter;
 
 public class CancelWithResult extends JDialog {
 
@@ -11,22 +16,26 @@ public class CancelWithResult extends JDialog {
     private JTextField CancelTextField;
 
 
-    public CancelWithResult() {
+    CancelWithResult() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
         setSize(200, 200);
 
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        buttonOK.addActionListener(e -> {
+            try {
                 onOK();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        buttonCancel.addActionListener(e -> {
+            try {
                 onCancel();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         });
 
@@ -34,14 +43,20 @@ public class CancelWithResult extends JDialog {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        contentPane.registerKeyboardAction(e -> {
+            try {
                 onCancel();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
@@ -55,17 +70,19 @@ public class CancelWithResult extends JDialog {
 
     }
 
-    public void onOK() {
+    private void onOK() throws IOException {
         // add your code here
 
         dispose();
         System.exit(0);
+        logWriter("CancelWithResult.Ok");
 
 
     }
 
-    private void onCancel() {
+    private void onCancel() throws IOException {
         // add your code here if necessary
         dispose();
+        logWriter("CancelWithResult.Cancel");
     }
 }
