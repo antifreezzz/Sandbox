@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
+public class Tranz {
+    public static void Tranz() {
         try {
             // Создаем экземпляр по работе с БД
             DbHandler dbHandler = DbHandler.getInstance();
