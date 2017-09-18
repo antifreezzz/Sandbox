@@ -44,14 +44,15 @@ public class DbHandler {
 
             // В resultSet будет храниться результат нашего запроса,
             // который выполняется командой statement.executeQuery()
-            ResultSet resultSet = statement.executeQuery("SELECT ID, NAME, TYPE, CATHEGORY, SUM, DATE FROM Transactions");
+            ResultSet resultSet = statement.executeQuery("SELECT ID, NAME, TYPE, ACCOUNT, CATEGORY, SUM, DATE FROM Transactions");
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
                 transactions.add(new Transaction(
                         resultSet.getInt("ID"),
                         resultSet.getString("Name"),
-                        resultSet.getString("Type"),
-                        resultSet.getString("Cathegory"),
+                        resultSet.getInt("Type"),
+                        resultSet.getInt("Account"),
+                        resultSet.getInt("Category"),
                         resultSet.getDouble("Sum"),
                         resultSet.getDate("Date")));
 
@@ -71,13 +72,14 @@ public class DbHandler {
         Date date = new Date();
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
-                "INSERT INTO Transactions(`NAME`, `TYPE`, `CATHEGORY`, 'SUM', 'DATE') " +
-                        "VALUES(?, ?, ?, ?, ?)")) {
+                "INSERT INTO Transactions('NAME', 'TYPE','ACCOUNT', 'CATEGORY', 'SUM', 'DATE') " +
+                        "VALUES(?, ?, ?, ?, ?, ?)")) {
             statement.setObject(1, transaction.Name);
             statement.setObject(2, transaction.Type);
-            statement.setObject(3, transaction.Cathegory);
-            statement.setObject(4, transaction.Sum);
-            statement.setObject(5, date);
+            statement.setObject(3, transaction.Account);
+            statement.setObject(4, transaction.Category);
+            statement.setObject(5, transaction.Sum);
+            statement.setObject(6, date);
             // Выполняем запрос
             statement.execute();
         } catch (SQLException e) {

@@ -8,32 +8,35 @@ import java.util.Date;
 public class Transaction {
     public int ID;
     public String Name;
-    public String Type;
-    public String Cathegory;
+    public int Type;
+    public int Account;
+    public int Category;
     public double Sum;
     public Date date;
 
-    public Transaction(int ID, String Name, String Type, String Cathegory, double Sum, Date date){
+    public Transaction(int ID, String Name, int Type, int Account, int Category, double Sum, Date date){
         this.ID = ID;
         this.Name = Name;
         this.Type = Type;
-        this.Cathegory = Cathegory;
+        this.Account = Account;
+        this.Category = Category;
         this.Sum = Sum;
         this.date = date;
     }
 
-    public Transaction(String Name, String Type, String Cathegory, double Sum){
+    public Transaction(String Name,int Type, int Account, int Category, double Sum){
         this.ID = ID;
         this.Name = Name;
         this.Type = Type;
-        this.Cathegory = Cathegory;
+        this.Account = Account;
+        this.Category = Category;
         this.Sum = Sum;
         this.date = date;
     }
 
     @Override
     public String toString(){
-        return String.format("ID: %s | Имя: %s | Тип: %s | Категория: %s | Сумма: %s | Дата: %s ",
-                this.ID, this.Name, this.Type, this.Cathegory, this.Sum, this.date);
+        return String.format("ID: %s | Имя: %s | Тип: %s | Счёт: %s | Категория: %s | Сумма: %s | Дата: %s ",
+                this.ID, this.Name, this.Type, this.Account, this.Category, this.Sum, this.date);
     }
 }
