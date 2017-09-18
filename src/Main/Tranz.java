@@ -21,4 +21,13 @@ public class Tranz {
             e.printStackTrace();
         }
     }
+    public static void trans(){
+        try{
+            DbHandler dbHandler = DbHandler.getInstance();
+            List<Transaction> transactions = dbHandler.getAllTransactions();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 }
