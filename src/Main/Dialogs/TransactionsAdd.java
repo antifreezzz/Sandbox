@@ -14,6 +14,7 @@ public class TransactionsAdd extends JDialog {
     private JTextField textField2;
     private JTextField textField3;
     private JTextField textField4;
+    private JTextField textField5;
 
     public TransactionsAdd() {
         setContentPane(contentPane);
@@ -46,18 +47,14 @@ public class TransactionsAdd extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-        buttonOK.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
+
     }
 
     private void onOK() {
         // add your code here
+        Tranz.tranz("Имя", 1, 2,1, 1000);
         dispose();
-        new Tranz();
+
 
     }
 

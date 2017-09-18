@@ -1,17 +1,15 @@
 package Main;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 public class Tranz {
-    public static void main(String[] args) {
+    public static void tranz(String name, int type, int account, int category, double sum) {
         try {
             // Создаем экземпляр по работе с БД
             DbHandler dbHandler = DbHandler.getInstance();
             // Добавляем запись
-            dbHandler.addTransaction(new Transaction("Name",1,1,2,10000.00));
+            dbHandler.addTransaction(new Transaction(name, type, account, category, sum));
             // Получаем все записи и выводим их на консоль
             List<Transaction> transactions = dbHandler.getAllTransactions();
             for (Transaction transaction : transactions) {
